@@ -1,7 +1,7 @@
 package com.example.justnotes_jetpackcompose.create_and_update_note.di
 
 import com.example.justnotes_jetpackcompose.create_and_update_note.domain.usecase.AddNoteUseCase
-import com.example.justnotes_jetpackcompose.create_and_update_note.domain.usecase.GetNotByIdUseCase
+import com.example.justnotes_jetpackcompose.create_and_update_note.domain.usecase.GetNoteByIdUseCase
 import com.example.justnotes_jetpackcompose.create_and_update_note.domain.usecase.UpdateNoteUseCase
 import com.example.justnotes_jetpackcompose.create_and_update_note.domain.usecase.impl.AddNoteUseCaseImpl
 import com.example.justnotes_jetpackcompose.create_and_update_note.domain.usecase.impl.GetNoteByIdUseCaseImpl
@@ -16,14 +16,14 @@ import dagger.hilt.components.SingletonComponent
 abstract class CreateAndUpdateNoteDomainModule {
 
     @Binds
-    abstract fun bindAANoteUseCase(
+    abstract fun bindAddNoteUseCase(
         addNoteUseCaseImpl: AddNoteUseCaseImpl
     ) : AddNoteUseCase
 
     @Binds
     abstract fun bindGetNoteByIdUseCase(
         getNoteByIdUseCaseImpl: GetNoteByIdUseCaseImpl
-    ) : GetNotByIdUseCase
+    ) : GetNoteByIdUseCase
 
     @Binds
     abstract fun bindUpdateNoteUseCase(

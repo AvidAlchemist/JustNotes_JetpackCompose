@@ -20,6 +20,9 @@ import javax.inject.Singleton
 class LocalSourceModuleProvider {
 
     @Provides
+    fun provideNoteDao(database: NotesRoomDatabase) = database.noteDao()
+
+    @Provides
     @Singleton
     fun providesLocalDatabase(
         @ApplicationContext context : Context

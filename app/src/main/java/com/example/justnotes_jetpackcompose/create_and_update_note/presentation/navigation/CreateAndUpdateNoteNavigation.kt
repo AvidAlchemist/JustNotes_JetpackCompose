@@ -16,7 +16,7 @@ enum class CreateAndUpdateNoteResArg {
     CREATE_NOTE, UPDATE_NOTE
 }
 
-fun NavController.navgateToCreateAndUpdateNote(
+fun NavController.navigateToCreateAndUpdateNote(
     topBarTitleResArg: CreateAndUpdateNoteResArg,
     noteId : String?
 ) {

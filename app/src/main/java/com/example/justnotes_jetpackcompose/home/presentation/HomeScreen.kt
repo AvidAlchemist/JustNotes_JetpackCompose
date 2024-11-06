@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.justnotes_jetpackcompose.R
@@ -26,9 +27,9 @@ import com.example.justnotes_jetpackcompose.core.domain.model.Note
 import com.example.justnotes_jetpackcompose.core.ui_kit.CreateNoteFloatingActionButton
 import com.example.justnotes_jetpackcompose.core.ui_kit.JustNotesTopBar
 import com.example.justnotes_jetpackcompose.core.ui_kit.NoteItem
+import com.example.justnotes_jetpackcompose.ui.theme.JustNotesTheme
 
 @Composable
-
 internal fun HomeScreen(
     modifier: Modifier = Modifier,
     uiState : HomeScreenUiState,
@@ -51,7 +52,6 @@ internal fun HomeScreen(
             }
         }
     ) { paddingValues ->
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -105,6 +105,29 @@ private fun HomeScreenEmpty(modifier: Modifier = Modifier) {
             color = MaterialTheme.colorScheme.primary,
             fontSize = 27.sp,
             textAlign = TextAlign.Center,
+        )
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenEmptyPreview() {
+    JustNotesTheme(dynamicColor = false) {
+        HomeScreenEmpty()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenContentPreview() {
+    val note = Note(0, "Title", "Description")
+    val notes = listOf(note, note.copy(), note.copy(), note.copy(), note.copy())
+    JustNotesTheme(dynamicColor = false) {
+        HomeScreenContent(
+            notes = notes,
+            onDeleteNoteButtonClick = {},
+            onNoteClick = {}
         )
     }
 }
